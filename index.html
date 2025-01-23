@@ -53,15 +53,9 @@
             position: absolute;
         }
 
-        .gif1, .gif3 {
-            width: 600px; /* 3x bigger */
-            height: 600px;
-        }
-
-        .gif2, .gif4, .gif5, .gif6 {
-            width: 200px;
-            height: 200px;
-        }
+        .gif1 { width: 600px; height: 600px; }
+        .gif2, .gif4, .gif5, .gif6 { width: 200px; height: 200px; }
+        .gif3 { width: 150px; height: 150px; } /* 🎯 Reduced to half */
 
         /* Random chaos animations */
         @keyframes move1 { 0% { left: 0%; top: 10%; } 100% { left: 80%; top: 70%; } }
@@ -80,17 +74,10 @@
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .wordart {
-                font-size: 50px;
-            }
-            .gif1, .gif3 {
-                width: 400px;
-                height: 400px;
-            }
-            .gif2, .gif4, .gif5, .gif6 {
-                width: 150px;
-                height: 150px;
-            }
+            .wordart { font-size: 50px; }
+            .gif1 { width: 400px; height: 400px; }
+            .gif2, .gif4, .gif5, .gif6 { width: 150px; height: 150px; }
+            .gif3 { width: 100px; height: 100px; }
         }
     </style>
 </head>
@@ -114,21 +101,20 @@
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Hidden Play Button (Fixes Autoplay Issues) -->
-    <button id="play-button" onclick="playMusic()" style="position:absolute; top:-1000px;">Play</button>
-
     <script>
         function playMusic() {
             let music = document.getElementById("bg-music");
+            music.volume = 0.1; // Start with low volume to avoid blocking
             music.play();
+            setTimeout(() => { music.volume = 1; }, 2000); // Increase volume after 2 seconds
         }
 
-        // Some browsers block autoplay, this auto-clicks the hidden button
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById("play-button").click();
-            }, 500);
-        };
+        // Bypass autoplay block
+        document.addEventListener("DOMContentLoaded", () => {
+            let event = new Event("click");
+            document.body.dispatchEvent(event);
+            setTimeout(playMusic, 1000);
+        });
     </script>
 </body>
 </html>
