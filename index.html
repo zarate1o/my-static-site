@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Static Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alper is Coming!</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .wordart {
+            font-size: 80px;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            color: #FFD700;
+            text-shadow: 
+                -3px -3px 0 #FF4500, 
+                3px -3px 0 #FF4500, 
+                -3px 3px 0 #FF4500, 
+                3px 3px 0 #FF4500,
+                -6px -6px 5px rgba(255, 69, 0, 0.5),
+                6px -6px 5px rgba(255, 69, 0, 0.5),
+                -6px 6px 5px rgba(255, 69, 0, 0.5),
+                6px 6px 5px rgba(255, 69, 0, 0.5);
+            transform: rotate(-10deg);
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello from my static site!</h1>
-  <p>Stay tuned for awesome content...</p>
+    <div class="wordart">Alper is Coming!</div>
 </body>
 </html>
