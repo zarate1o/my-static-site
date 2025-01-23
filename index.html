@@ -7,27 +7,34 @@
     <style>
         /* Background Styling */
         body {
-            background-image: url('https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg'), 
-                              url('https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_1280.jpg'),
-                              url('https://cdn.pixabay.com/photo/2017/01/20/15/06/lovebirds-1993648_1280.jpg');
-            background-size: 200px, 200px, 200px;
-            background-repeat: repeat;
+            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            animation: backgroundScroll 10s linear infinite;
+            position: relative;
         }
 
-        /* Smooth scrolling background effect */
-        @keyframes backgroundScroll {
-            0% { background-position: 0 0, 50% 50%, 100% 100%; }
-            100% { background-position: 500px 500px, 50% 50%, -500px -500px; }
+        /* Text Styling */
+        .wordart {
+            font-size: 80px;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            color: #FFD700;
+            text-shadow: 
+                3px 3px 0 #FF4500, 
+                -3px -3px 0 #FF4500, 
+                3px -3px 0 #FF4500, 
+                -3px 3px 0 #FF4500;
+            animation: glow 1.5s infinite alternate, color-cycle 2s infinite linear;
+            z-index: 10;
+            position: relative;
         }
 
-        /* Glowing, Blinking, and Rainbow Text */
+        /* Glowing & Color-Changing Effect */
         @keyframes glow {
             0% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff4500; }
             50% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 25px #ff4500; }
@@ -42,46 +49,44 @@
             100% { color: #FF0000; }
         }
 
-        /* Centering the text */
-        .wordart {
-            font-size: 80px;
-            font-weight: bold;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            text-align: center;
-            animation: glow 1.5s infinite alternate, color-cycle 2s infinite linear;
-            transform: rotate(-10deg);
-            background: linear-gradient(90deg, #ff1493, #ff69b4, #ff4500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* GIFs Styling - Making them Pop & Move */
+        .gif-container img {
+            width: 100px;
+            height: 100px;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-10deg);
+            animation: moveAround 8s linear infinite;
         }
 
-        /* Marquee (Scrolling Hearts & Love Spam) */
-        .marquee {
-            font-size: 30px;
-            font-weight: bold;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            color: #ff1493;
-            white-space: nowrap;
-            overflow: hidden;
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            animation: scrollingText 10s linear infinite;
+        /* Keyframes for GIF Movement */
+        @keyframes moveAround {
+            0% { transform: translateX(-100vw) translateY(50px) rotate(0deg); }
+            50% { transform: translateX(100vw) translateY(-50px) rotate(180deg); }
+            100% { transform: translateX(-100vw) translateY(50px) rotate(360deg); }
         }
 
-        @keyframes scrollingText {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+        /* Responsive Scaling for Mobile */
+        @media (max-width: 768px) {
+            .wordart {
+                font-size: 50px;
+            }
+
+            .gif-container img {
+                width: 70px;
+                height: 70px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Scrolling Heart Spam -->
-    <div class="marquee">💖💞💕🌸 SENİ ÇOOOK SEVİYORUM! 💕💞💖</div>
+    <!-- Scrolling GIF Spam -->
+    <div class="gif-container">
+        <img src="https://media.tenor.com/254878703118435018.gif">
+        <img src="https://media.tenor.com/27618341.gif">
+        <img src="https://media.tenor.com/5424825294368467678.gif">
+        <img src="https://media.tenor.com/9168835756461277783.gif">
+        <img src="https://media.tenor.com/16129426550737275779.gif">
+        <img src="https://media.tenor.com/65138452807201719.gif">
+    </div>
 
     <!-- The Ultimate WordArt Declaration -->
     <div class="wordart">Seni Seviyorum &lt;3</div>
