@@ -1,46 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alper is Coming!</title>
+    <title>Seni Seviyorum ❤️</title>
     <style>
-        @keyframes glowing {
-            0% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FF4500, 0 0 15px #FF4500; }
-            50% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FF4500, 0 0 25px #FF4500; }
-            100% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FF4500, 0 0 15px #FF4500; }
-        }
-
+        /* Background Styling - CHAOTIC LOVE MODE */
         body {
-            background-color: black;
+            background-image: url('https://placekitten.com/200/200'), 
+                              url('https://upload.wikimedia.org/wikipedia/commons/6/66/Tulip_-_floriade_canberra.jpg'),
+                              url('https://upload.wikimedia.org/wikipedia/commons/5/56/Love_Birds_Pair.jpg');
+            background-size: 150px, 200px, 250px;
+            background-repeat: repeat;
+            background-position: top left, center, bottom right;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            text-align: center;
             overflow: hidden;
         }
 
+        /* Glowing, Blinking, Rainbow WordArt */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff4500; }
+            50% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 25px #ff4500; }
+            100% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff4500; }
+        }
+
+        @keyframes color-cycle {
+            0% { color: #FF0000; }
+            25% { color: #FF69B4; }
+            50% { color: #FFD700; }
+            75% { color: #8A2BE2; }
+            100% { color: #FF0000; }
+        }
+
         .wordart {
-            font-size: 100px;
+            font-size: 80px;
             font-weight: bold;
             font-family: "Comic Sans MS", cursive, sans-serif;
             text-align: center;
-            color: #FFD700;
-            text-shadow: 
-                -5px -5px 0 #FF4500, 
-                5px -5px 0 #FF4500, 
-                -5px 5px 0 #FF4500, 
-                5px 5px 0 #FF4500,
-                -8px -8px 10px rgba(255, 69, 0, 0.8),
-                8px -8px 10px rgba(255, 69, 0, 0.8),
-                -8px 8px 10px rgba(255, 69, 0, 0.8),
-                8px 8px 10px rgba(255, 69, 0, 0.8);
+            animation: glow 1.5s infinite alternate, color-cycle 2s infinite linear;
             transform: rotate(-10deg);
-            background: linear-gradient(90deg, #FFD700, #FF8C00, #FF4500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glowing 1.5s infinite alternate;
         }
     </style>
 </head>
