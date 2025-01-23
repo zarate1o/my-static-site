@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seni Seviyorum ❤️</title>
     <style>
-        /* Background Styling - CHAOTIC LOVE MODE */
+        /* Background Styling - MEGA CHAOS MODE */
         body {
             background-image: url('https://placekitten.com/200/200'), 
-                              url('https://upload.wikimedia.org/wikipedia/commons/6/66/Tulip_-_floriade_canberra.jpg'),
-                              url('https://upload.wikimedia.org/wikipedia/commons/5/56/Love_Birds_Pair.jpg');
+                              url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tulip_-_floriade_canberra.jpg/800px-Tulip_-_floriade_canberra.jpg'),
+                              url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Love_Birds_Pair.jpg/800px-Love_Birds_Pair.jpg');
             background-size: 150px, 200px, 250px;
             background-repeat: repeat;
             background-position: top left, center, bottom right;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            overflow: hidden;
+            animation: backgroundScroll 10s linear infinite;
         }
 
-        /* Glowing, Blinking, Rainbow WordArt */
+        /* Smooth scrolling background effect */
+        @keyframes backgroundScroll {
+            0% { background-position: 0 0, 50% 50%, 100% 100%; }
+            100% { background-position: 500px 500px, 50% 50%, -500px -500px; }
+        }
+
+        /* Glowing, Blinking, and Rainbow Text */
         @keyframes glow {
             0% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff4500; }
             50% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 25px #ff4500; }
@@ -36,6 +37,26 @@
             100% { color: #FF0000; }
         }
 
+        /* Marquee (Scrolling Hearts & Love Spam) */
+        .marquee {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: #ff1493;
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            animation: scrollingText 10s linear infinite;
+        }
+
+        @keyframes scrollingText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* The Glorious Blinking Love Text */
         .wordart {
             font-size: 80px;
             font-weight: bold;
@@ -43,10 +64,18 @@
             text-align: center;
             animation: glow 1.5s infinite alternate, color-cycle 2s infinite linear;
             transform: rotate(-10deg);
+            background: linear-gradient(90deg, #ff1493, #ff69b4, #ff4500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
     </style>
 </head>
 <body>
-    <div class="wordart">Seni Seviyorum <3</div>
+    <!-- Scrolling Heart Spam -->
+    <div class="marquee">💖💞💕🌸 SENİ ÇOOOK SEVİYORUM! 💕💞💖</div>
+
+    <!-- The Ultimate WordArt Declaration -->
+    <div class="wordart">Seni Seviyorum ❤️</div>
 </body>
 </html>
