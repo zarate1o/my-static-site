@@ -16,26 +16,23 @@
             position: relative;
         }
 
+        /* WordArt Text */
         .wordart {
             font-size: 80px;
             font-weight: bold;
             font-family: "Comic Sans MS", cursive, sans-serif;
             text-align: center;
-            color: #FFD700;
+            color: white;
             text-shadow: 
-                3px 3px 0 #FF4500, 
-                -3px -3px 0 #FF4500, 
-                3px -3px 0 #FF4500, 
-                -3px 3px 0 #FF4500;
-            animation: glow 1.5s infinite alternate, color-cycle 2s infinite linear;
+                5px 5px 0 #FF0000, 
+                -5px -5px 0 #00FFFF, 
+                5px -5px 0 #FF69B4, 
+                -5px 5px 0 #FFD700;
+            animation: color-cycle 3s infinite linear, glow 1.5s infinite alternate;
+            position: absolute;
+            transform: rotate(-20deg);
+            top: 30%;
             z-index: 10;
-            position: relative;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff4500; }
-            50% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 25px #ff4500; }
-            100% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff4500; }
         }
 
         @keyframes color-cycle {
@@ -46,45 +43,67 @@
             100% { color: #FF0000; }
         }
 
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4; }
+            100% { text-shadow: 0 0 20px #ff1493, 0 0 40px #ff69b4; }
+        }
+
+        /* GIF Animation */
         .gif-container img {
-            width: 500px;
-            height: 500px;
             position: absolute;
-            animation: moveAround 8s linear infinite;
+            animation: moveAround 5s infinite alternate ease-in-out;
+        }
+
+        /* Make GIF 1 & 3 Bigger */
+        .gif1, .gif3 {
+            width: 600px; /* 3x original */
+            height: 600px;
+        }
+
+        .gif2, .gif4, .gif5, .gif6 {
+            width: 200px;
+            height: 200px;
         }
 
         @keyframes moveAround {
-            0% { transform: translateX(-100vw) translateY(50px) rotate(0deg); }
-            50% { transform: translateX(100vw) translateY(-50px) rotate(180deg); }
-            100% { transform: translateX(-100vw) translateY(50px) rotate(360deg); }
+            0% { transform: translateX(-50vw) translateY(50px) rotate(0deg); }
+            50% { transform: translateX(50vw) translateY(-50px) rotate(180deg); }
+            100% { transform: translateX(-50vw) translateY(50px) rotate(360deg); }
         }
 
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .wordart {
                 font-size: 50px;
             }
-
-            .gif-container img {
-                width: 300px;
-                height: 300px;
+            .gif1, .gif3 {
+                width: 400px;
+                height: 400px;
+            }
+            .gif2, .gif4, .gif5, .gif6 {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- GIFs -->
     <div class="gif-container">
-        <img src="https://media.tenor.com/254878703118435018.gif" alt="Cat GIF 1">
-        <img src="https://media.tenor.com/27618341.gif" alt="Cat GIF 2">
-        <img src="https://media.tenor.com/5424825294368467678.gif" alt="Cat GIF 3">
-        <img src="https://media.tenor.com/9168835756461277783.gif" alt="Cat GIF 4">
-        <img src="https://media.tenor.com/16129426550737275779.gif" alt="Cat GIF 5">
-        <img src="https://media.tenor.com/65138452807201719.gif" alt="Cat GIF 6">
+        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/1.gif" alt="GIF 1" class="gif1">
+        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/2.gif" alt="GIF 2" class="gif2">
+        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/3.gif" alt="GIF 3" class="gif3">
+        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/4.gif" alt="GIF 4" class="gif4">
+        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/5.gif" alt="GIF 5" class="gif5">
+        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/6.gif" alt="GIF 6" class="gif6">
     </div>
 
+    <!-- WordArt Text -->
     <div class="wordart">Seni Seviyorum &lt;3</div>
 
+    <!-- Background Music -->
     <audio autoplay loop>
-        <source src="https://archive.org/download/8BitShapeOfYou/8BitShapeOfYou.mp3" type="audio/mpeg">
+        <source src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/Shape%20Of%20You%20%5B8%20Bit%20Tribute%20to%20Ed%20Sheeran%5D%20-%208%20Bit%20Universe.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </body>
