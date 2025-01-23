@@ -93,7 +93,7 @@
     </div>
 
     <!-- WordArt Text -->
-    <div class="wordart">Seni Seviyorum &lt;3</div>
+    <div class="wordart">Seni Seviyorum Ebru &lt;3</div>
 
     <!-- Music -->
     <audio id="bg-music" loop>
@@ -104,17 +104,24 @@
     <script>
         function playMusic() {
             let music = document.getElementById("bg-music");
-            music.volume = 0.1; // Start with low volume to avoid blocking
-            music.play();
-            setTimeout(() => { music.volume = 1; }, 2000); // Increase volume after 2 seconds
+            music.volume = 0.1; // Start quiet
+            music.play().then(() => {
+                setTimeout(() => { music.volume = 1; }, 2000); // Gradually increase volume
+            }).catch(error => {
+                console.log("Autoplay failed. Waiting for user interaction...");
+            });
         }
 
-        // Bypass autoplay block
-        document.addEventListener("DOMContentLoaded", () => {
-            let event = new Event("click");
-            document.body.dispatchEvent(event);
-            setTimeout(playMusic, 1000);
-        });
+        // Play when user does *any* interaction (click, scroll, keypress, touch, etc.)
+        function enableMusicOnInteraction() {
+            document.body.addEventListener("click", playMusic, { once: true });
+            document.body.addEventListener("scroll", playMusic, { once: true });
+            document.body.addEventListener("keydown", playMusic, { once: true });
+            document.body.addEventListener("touchstart", playMusic, { once: true });
+        }
+
+        // Start listening for interactions on page load
+        document.addEventListener("DOMContentLoaded", enableMusicOnInteraction);
     </script>
 </body>
 </html>
