@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seni Seviyorum <3</title>
+    <title>Alper is Coming!</title>
     <style>
         body {
             background-color: black;
@@ -12,116 +12,28 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
-            position: relative;
         }
 
-        /* WordArt Text */
         .wordart {
             font-size: 80px;
             font-weight: bold;
             font-family: "Comic Sans MS", cursive, sans-serif;
             text-align: center;
-            color: white;
+            color: #FFD700;
             text-shadow: 
-                5px 5px 0 #FF0000, 
-                -5px -5px 0 #00FFFF, 
-                5px -5px 0 #FF69B4, 
-                -5px 5px 0 #FFD700;
-            animation: color-cycle 3s infinite linear, glow 1.5s infinite alternate;
-            position: absolute;
-            transform: rotate(-20deg);
-            top: 30%;
-            z-index: 10;
-        }
-
-        @keyframes color-cycle {
-            0% { color: #FF0000; }
-            25% { color: #FF69B4; }
-            50% { color: #FFD700; }
-            75% { color: #8A2BE2; }
-            100% { color: #FF0000; }
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4; }
-            100% { text-shadow: 0 0 20px #ff1493, 0 0 40px #ff69b4; }
-        }
-
-        /* GIF Styling & Chaos Movement */
-        .gif-container img {
-            position: absolute;
-        }
-
-        .gif1 { width: 600px; height: 600px; }
-        .gif2, .gif4, .gif5, .gif6 { width: 200px; height: 200px; }
-        .gif3 { width: 150px; height: 150px; } /* 🎯 Reduced to half */
-
-        /* Random chaos animations */
-        @keyframes move1 { 0% { left: 0%; top: 10%; } 100% { left: 80%; top: 70%; } }
-        @keyframes move2 { 0% { right: 0%; bottom: 10%; } 100% { right: 70%; bottom: 60%; } }
-        @keyframes move3 { 0% { left: 20%; top: 80%; } 100% { left: 60%; top: 10%; } }
-        @keyframes move4 { 0% { right: 10%; top: 10%; } 100% { right: 80%; top: 70%; } }
-        @keyframes move5 { 0% { left: 5%; bottom: 5%; } 100% { left: 90%; bottom: 80%; } }
-        @keyframes move6 { 0% { right: 5%; bottom: 5%; } 100% { right: 90%; bottom: 80%; } }
-
-        .gif1 { animation: move1 6s infinite alternate ease-in-out; }
-        .gif2 { animation: move2 4s infinite alternate ease-in-out; }
-        .gif3 { animation: move3 7s infinite alternate ease-in-out; }
-        .gif4 { animation: move4 5s infinite alternate ease-in-out; }
-        .gif5 { animation: move5 6s infinite alternate ease-in-out; }
-        .gif6 { animation: move6 8s infinite alternate ease-in-out; }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .wordart { font-size: 50px; }
-            .gif1 { width: 400px; height: 400px; }
-            .gif2, .gif4, .gif5, .gif6 { width: 150px; height: 150px; }
-            .gif3 { width: 100px; height: 100px; }
+                -3px -3px 0 #FF4500, 
+                3px -3px 0 #FF4500, 
+                -3px 3px 0 #FF4500, 
+                3px 3px 0 #FF4500,
+                -6px -6px 5px rgba(255, 69, 0, 0.5),
+                6px -6px 5px rgba(255, 69, 0, 0.5),
+                -6px 6px 5px rgba(255, 69, 0, 0.5),
+                6px 6px 5px rgba(255, 69, 0, 0.5);
+            transform: rotate(-10deg);
         }
     </style>
 </head>
 <body>
-    <!-- GIFs -->
-    <div class="gif-container">
-        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/1.gif" alt="GIF 1" class="gif1">
-        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/2.gif" alt="GIF 2" class="gif2">
-        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/3.gif" alt="GIF 3" class="gif3">
-        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/4.gif" alt="GIF 4" class="gif4">
-        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/5.gif" alt="GIF 5" class="gif5">
-        <img src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/6.gif" alt="GIF 6" class="gif6">
-    </div>
-
-    <!-- WordArt Text -->
-    <div class="wordart">Seni Seviyorum Ebru &lt;3</div>
-
-    <!-- Music -->
-    <audio id="bg-music" loop>
-        <source src="https://raw.githubusercontent.com/zarate1o/my-static-site/main/Shape%20Of%20You%20%5B8%20Bit%20Tribute%20to%20Ed%20Sheeran%5D%20-%208%20Bit%20Universe.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        function playMusic() {
-            let music = document.getElementById("bg-music");
-            music.volume = 0.1; // Start quiet
-            music.play().then(() => {
-                setTimeout(() => { music.volume = 1; }, 2000); // Gradually increase volume
-            }).catch(error => {
-                console.log("Autoplay failed. Waiting for user interaction...");
-            });
-        }
-
-        // Play when user does *any* interaction (click, scroll, keypress, touch, etc.)
-        function enableMusicOnInteraction() {
-            document.body.addEventListener("click", playMusic, { once: true });
-            document.body.addEventListener("scroll", playMusic, { once: true });
-            document.body.addEventListener("keydown", playMusic, { once: true });
-            document.body.addEventListener("touchstart", playMusic, { once: true });
-        }
-
-        // Start listening for interactions on page load
-        document.addEventListener("DOMContentLoaded", enableMusicOnInteraction);
-    </script>
+    <div class="wordart">oOo KPSS Tercih Robotu oOo</div>
 </body>
 </html>
