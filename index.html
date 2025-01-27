@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Display</title>
     <style>
-        /* Make Background Image Full-Screen */
+        /* Make Background Image Full-Screen but Preserve Aspect Ratio */
         body {
             margin: 0;
             padding: 0;
-            background: url("https://raw.githubusercontent.com/zarate1o/my-static-site/main/pic1.jpg") no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            overflow: hidden;
+            background-color: #ff99cc; /* Soft pink background */
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Responsive Background Image */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("https://raw.githubusercontent.com/zarate1o/my-static-site/main/pic1.jpg") no-repeat center center;
+            background-size: contain; /* ✅ Fix for laptop - No zoom, just fit */
+            background-color: #ff99cc; /* ✅ Adds pink filler for laptop */
         }
 
         /* Heart Firework Container */
@@ -55,6 +65,7 @@
 </head>
 <body>
 
+    <div class="background"></div>
     <div class="heart-container"></div>
 
     <script>
@@ -65,4 +76,20 @@
             heart.innerHTML = "❤️";
 
             // Random position
-            const xPos = Math.random() * window.inner
+            heart.style.left = `${Math.random() * window.innerWidth}px`;
+            heart.style.top = `${Math.random() * window.innerHeight}px`;
+
+            heartContainer.appendChild(heart);
+
+            // Remove heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+
+        // Create hearts every 300ms (firework effect)
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
